@@ -1,0 +1,157 @@
+<!-- INCIO DE CARRUSEL -->
+<style>
+  #carrusel {
+    width: 100vw;
+    height: 90vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .carruselImagen {
+    flex-shrink: 0;
+    width: 100vw;
+    z-index: 1;
+    display: none;
+  }
+
+  #carruselContenido {
+    flex-shrink: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+    left: -100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  #carruselLeft {
+    height: 7.5%;
+    aspect-ratio: 1;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    transform: rotate(-45deg);
+    cursor: pointer;
+  }
+
+  #carruselRight {
+    height: 7.5%;
+    aspect-ratio: 1;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    transform: rotate(-225deg);
+    cursor: pointer;
+  }
+
+  #carruselLeft:hover {
+    border-top: 3px solid var(--secondaryColor);
+    border-left: 3px solid var(--secondaryColor);
+  }
+
+  #carruselRight:hover {
+    border-top: 3px solid var(--secondaryColor);
+    border-left: 3px solid var(--secondaryColor);
+  }
+
+  #carruselInfo {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #carruselTitulo {
+    font-family: var(--mainFont);
+    font-size: 5.5vh;
+    color: var(--secondaryColor);
+    margin-bottom: 4vh;
+    text-align: center;
+  }
+
+  #carruselTexto {
+    font-family: var(--otherFont);
+    font-size: 2.5vh;
+    color: black;
+  }
+</style>
+<!-- CAMBIAR AQUI: Cambiar X por el número de su sección -->
+<div id="seccionX">
+  <!-- FIN DE CAMBIO -->
+  <div id="carrusel">
+    <!-- CAMBIAR AQUI: cambiar el 'src' al enlace de la imagen -->
+    <img
+      id="imagen0"
+      class="carruselImagen"
+      src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png"
+    />
+    <!-- FIN DE CAMBIO -->
+    <!-- CAMBIAR AQUI: cambiar el 'src' al enlace de la imagen -->
+    <img
+      id="imagen1"
+      class="carruselImagen"
+      src="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+    />
+    <!-- FIN DE CAMBIO -->
+    <!-- CAMBIAR AQUI: cambiar el 'src' al enlace de la imagen -->
+    <img
+      id="imagen2"
+      class="carruselImagen"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/1280px-Placeholder_view_vector.svg.png"
+    />
+    <!-- FIN DE CAMBIO -->
+    <div id="carruselContenido">
+      <div id="carruselLeft" onclick="changeImage(-1)"></div>
+      <div id="carruselInfo">
+        <!-- CAMBIAR AQUI: Cambiar Titulo y Texto -->
+        <div id="carruselTitulo">Titulo de Carrusel</div>
+        <div id="carruselTexto">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+          pellentesque nisi ultricies ex tincidunt, sed rhoncus odio facilisis.
+          Fusce nec libero sit amet nulla bibendum placerat. Vestibulum mattis
+          ipsum quis neque lobortis, mollis rhoncus tellus feugiat. Aenean
+          semper lacus nisl, at imperdiet tortor convallis et. Phasellus justo
+          dolor, blandit id purus non, tempor tempus ante. Aenean pretium lacus
+          vitae augue vestibulum laoreet. Integer maximus vulputate aliquam.
+          Curabitur in mauris rutrum sapien cursus sagittis quis vitae justo.
+          Maecenas dictum, sem eget maximus ullamcorper, eros urna posuere ante,
+          vel tempus diam tellus in odio. Curabitur euismod, justo vitae
+          eleifend maximus, nulla leo interdum tortor, quis varius turpis turpis
+          id tortor. Quisque aliquet nibh non neque facilisis ultricies. Nunc et
+          finibus lacus. Fusce ac dolor ultrices, sollicitudin tellus quis,
+          accumsan arcu. Nam congue tortor eget sapien lacinia malesuada. Proin
+          vel lectus egestas, blandit sem vitae, hendrerit quam. Quisque pretium
+          finibus laoreet.
+        </div>
+        <!-- FIN DE CAMBIO -->
+      </div>
+      <div id="carruselRight" onclick="changeImage(1)"></div>
+    </div>
+  </div>
+</div>
+<script>
+  var image1 = document.getElementById("imagen0");
+  var image2 = document.getElementById("imagen1");
+  var image3 = document.getElementById("imagen2");
+
+  var currentImage = 0;
+
+  document.getElementById("imagen0").style.display = "flex";
+
+  function changeImage(num) {
+    image1.style.display = "none";
+    image2.style.display = "none";
+    image3.style.display = "none";
+
+    currentImage = (3 + (currentImage + num)) % 3;
+
+    document.getElementById("imagen" + currentImage).style.display = "flex";
+  }
+</script>
+<!-- FIN DE CARRUSEL -->
